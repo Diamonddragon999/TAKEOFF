@@ -121,16 +121,28 @@ include(FetchContent)
 #
 FetchContent_MakeAvailable(googletest)
 
+FetchContent_Declare(
+    SFML
+    GIT_REPOSITORY https://github.com/SFML/SFML.git
+    GIT_TAG        2.6.1
+    GIT_SHALLOW    1
+)
+FetchContent_MakeAvailable(SFML)
+
 ###############################################################################
 
 # external dependencies with find_package
 
-# find_package(Threads REQUIRED)
+find_package(Threads REQUIRED)
+if(APPLE)
+elseif(UNIX)
+    find_package(X11)
+endif()
 
 ###############################################################################
 
 # NOTE: update executable name in .github/workflows/cmake.yml:25 when changing name here
-add_executable(${MAIN_EXECUTABLE_NAME} main.cpp ${SOURCES})
+add_executable(${MAIN_EXECUTABLE_NAME} main.cpp ${SOURCES} env_fixes.h)
 
 # NOTE: Add all defined targets (e.g. executables, libraries, etc. )
 # NOTE: RUN_SANITIZERS is optional, if it's not present it will default to true
@@ -143,10 +155,14 @@ set_compiler_flags(RUN_SANITIZERS TRUE TARGET_NAMES ${MAIN_EXECUTABLE_NAME})
 
 # use SYSTEM so cppcheck and clang-tidy do not report warnings from these directories
 target_include_directories(${MAIN_EXECUTABLE_NAME} SYSTEM PRIVATE generated/include)
-# target_include_directories(${MAIN_EXECUTABLE_NAME} SYSTEM PRIVATE ext/<SomeHppLib>/include)
-# target_include_directories(${MAIN_EXECUTABLE_NAME} SYSTEM PRIVATE ${<SomeLib>_SOURCE_DIR}/include)
-# target_link_directories(${MAIN_EXECUTABLE_NAME} PRIVATE ${<SomeLib>_BINARY_DIR}/lib)
-# target_link_libraries(${MAIN_EXECUTABLE_NAME} <SomeLib>)
+target_include_directories(${MAIN_EXECUTABLE_NAME} SYSTEM PRIVATE ${SFML_SOURCE_DIR}/include)
+target_link_directories(${MAIN_EXECUTABLE_NAME} PRIVATE ${SFML_BINARY_DIR}/lib)
+target_link_libraries(${MAIN_EXECUTABLE_NAME} PRIVATE sfml-graphics sfml-window sfml-system Threads::Threads)
+
+if(APPLE)
+elseif(UNIX)
+    target_link_libraries(${MAIN_EXECUTABLE_NAME} PRIVATE X11)
+endif()
 
 ###############################################################################
 
@@ -174,6 +190,17 @@ endif()
 #
 #include(GoogleTest)
 #gtest_discover_tests(test_oop)
-copy_files(FILES tastatura.txt COPY_TO_DESTINATION TARGET_NAME ${MAIN_EXECUTABLE_NAME})
+copy_files(FILES tastatura.txt DIRECTORY resources COPY_TO_DESTINATION TARGET_NAME ${MAIN_EXECUTABLE_NAME})
 # copy_files(FILES tastatura.txt config.json DIRECTORY images sounds COPY_TO_DESTINATION TARGET_NAME ${MAIN_EXECUTABLE_NAME})
 # copy_files(DIRECTORY images sounds COPY_TO_DESTINATION TARGET_NAME ${MAIN_EXECUTABLE_NAME})
+
+# copy dependent DLLs to build dir
+# see https://en.sfml-dev.org/forums/index.php?topic=28580.0
+# remove this if not using audio or if using SFML 3
+if (WIN32 AND SFML_BUILD_AUDIO)
+    add_custom_command(TARGET ${MAIN_EXECUTABLE_NAME} POST_BUILD
+      COMMAND ${CMAKE_COMMAND} -E copy_if_different
+         ${SFML_SOURCE_DIR}/extlibs/bin/x64/openal32.dll
+         $<TARGET_FILE_DIR:${MAIN_EXECUTABLE_NAME}>
+    )
+endif()
