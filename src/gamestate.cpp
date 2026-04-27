@@ -1,5 +1,5 @@
 #include "gamestate.h"
 
-void avanseaza(GameState& g) {
-    g.tura++;
+void GameState::avanseaza() {
+    tura++;
 }
