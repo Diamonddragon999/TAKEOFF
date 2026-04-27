@@ -13,6 +13,8 @@
 #include "env_fixes.h"                                              //
 //////////////////////////////////////////////////////////////////////
 
+#include "gamestate.h"
+
 
 //////////////////////////////////////////////////////////////////////
 /// This class is used to test that the memory leak checks work as expected even when using a GUI
@@ -71,6 +73,10 @@ int main() {
     ////////////////////////////////////////////////////////////////////////
     ///
     std::cout << "Hello, world!\n";
+
+    GameState g;
+    std::cout << "Tura " << g.tura << " bani " << g.bani << "\n";
+
     std::array<int, 100> v{};
     int nr;
     std::cout << "Introduceți nr: ";
