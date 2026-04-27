@@ -76,6 +76,8 @@ int main() {
 
     GameState g;
     std::cout << "Tura " << g.tura << " bani " << g.bani << "\n";
+    g.avanseaza();
+    std::cout << "Tura " << g.tura << " bani " << g.bani << "\n";
 
     std::array<int, 100> v{};
     int nr;
