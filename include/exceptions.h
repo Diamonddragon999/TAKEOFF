@@ -11,7 +11,6 @@ public:
 class BugetInsuficient : public TakeoffException {
 public:
     BugetInsuficient(int avem, int trebuie);
-    BugetInsuficient(int cost);
 };
 
 #endif

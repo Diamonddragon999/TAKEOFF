@@ -6,6 +6,6 @@ void GameState::avanseaza() {
 }
 
 void GameState::cheltuieste(int cost) {
-    if (cost > bani) throw BugetInsuficient(cost);
+    if (cost > bani) throw BugetInsuficient{};
     bani -= cost;
 }
