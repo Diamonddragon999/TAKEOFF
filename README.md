@@ -72,7 +72,7 @@ Nerespectarea duce la nepunctarea proiectului
 - [ ] funcții și atribute `static` (în clase) [*](https://github.com/Ionnier/poo/tree/main/labs/L04#static)
   - [ ] 1+ atribute statice non-triviale 
   - [ ] 1+ funcții statice non-triviale
-- [ ] excepții [*](https://github.com/Ionnier/poo/tree/main/labs/L04#exception-handling)
+- [x] excepții [*](https://github.com/Ionnier/poo/tree/main/labs/L04#exception-handling)
   - porniți de la `std::exception`
   - ilustrați propagarea excepțiilor
   - ilustrati upcasting-ul în blocurile catch
