@@ -6,6 +6,7 @@ public:
     int tura{1};
     int bani{1000};
     void avanseaza();
+    void cheltuieste(int cost);
 };
 
 #endif

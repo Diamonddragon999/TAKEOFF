@@ -81,7 +81,7 @@ int main() {
     std::cout << "Tura " << g.tura << " bani " << g.bani << "\n";
 
     try {
-        throw BugetInsuficient(g.bani, 5000);
+        g.cheltuieste(5000);
     } catch (const TakeoffException& e) {
         std::cout << "eroare: " << e.what() << "\n";
     }
