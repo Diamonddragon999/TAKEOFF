@@ -2,6 +2,7 @@
 #include <array>
 #include <chrono>
 #include <thread>
+#include <memory>
 
 #include <SFML/Graphics.hpp>
 //////////////////////////////////////////////////////////////////////
@@ -15,6 +16,8 @@
 
 #include "gamestate.h"
 #include "exceptions.h"
+#include "aimodel.h"
+#include "narrowai.h"
 
 
 //////////////////////////////////////////////////////////////////////
@@ -85,6 +88,9 @@ int main() {
     } catch (const TakeoffException& e) {
         std::cout << "eroare: " << e.what() << "\n";
     }
+
+    std::shared_ptr<AIModel> model = std::make_shared<NarrowAI>();
+    std::cout << model->nume() << ": " << model->descriere() << "\n";
 
     std::array<int, 100> v{};
     int nr;
