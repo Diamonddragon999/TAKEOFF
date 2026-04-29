@@ -6,7 +6,7 @@
 class FrontierAI : public AIModel {
 public:
     std::string nume() const override;
-    std::string descriere();
+    std::string descriere() const override;
 };
 
 #endif
