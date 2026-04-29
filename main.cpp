@@ -18,6 +18,7 @@
 #include "exceptions.h"
 #include "aimodel.h"
 #include "narrowai.h"
+#include "frontierai.h"
 
 
 //////////////////////////////////////////////////////////////////////
@@ -91,6 +92,9 @@ int main() {
 
     std::shared_ptr<AIModel> model = std::make_shared<NarrowAI>();
     std::cout << model->nume() << ": " << model->descriere() << "\n";
+
+    std::shared_ptr<AIModel> frontier = std::make_shared<FrontierAI>();
+    std::cout << frontier->nume() << ": " << frontier->descriere() << "\n";
 
     std::array<int, 100> v{};
     int nr;
