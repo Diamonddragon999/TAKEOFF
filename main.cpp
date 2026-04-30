@@ -3,6 +3,7 @@
 #include <chrono>
 #include <thread>
 #include <memory>
+#include <vector>
 
 #include <SFML/Graphics.hpp>
 //////////////////////////////////////////////////////////////////////
@@ -22,6 +23,7 @@
 #include "gameevent.h"
 #include "techevent.h"
 #include "crisisevent.h"
+#include "optiune.h"
 
 
 //////////////////////////////////////////////////////////////////////
@@ -99,7 +101,11 @@ int main() {
     std::shared_ptr<AIModel> frontier = std::make_shared<FrontierAI>();
     std::cout << frontier->nume() << ": " << frontier->descriere() << "\n";
 
-    auto event = std::make_shared<TechEvent>();
+    std::vector<Optiune> opts{
+        Optiune{"investeste in safety", -100},
+        Optiune{"lanseaza modelul", 500}
+    };
+    auto event = std::make_shared<TechEvent>(opts);
     std::cout << event->descriere() << "\n";
     event->aplica(g);
     std::cout << "Tura " << g.tura << " bani " << g.bani << "\n";
