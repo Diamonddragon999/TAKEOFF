@@ -21,6 +21,7 @@
 #include "frontierai.h"
 #include "gameevent.h"
 #include "techevent.h"
+#include "crisisevent.h"
 
 
 //////////////////////////////////////////////////////////////////////
@@ -101,6 +102,11 @@ int main() {
     auto event = std::make_shared<TechEvent>();
     std::cout << event->descriere() << "\n";
     event->aplica(g);
+    std::cout << "Tura " << g.tura << " bani " << g.bani << "\n";
+
+    auto criza = std::make_shared<CrisisEvent>();
+    std::cout << criza->descriere() << "\n";
+    criza->aplica(g);
     std::cout << "Tura " << g.tura << " bani " << g.bani << "\n";
 
     std::array<int, 100> v{};
