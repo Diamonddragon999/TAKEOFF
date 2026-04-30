@@ -19,6 +19,8 @@
 #include "aimodel.h"
 #include "narrowai.h"
 #include "frontierai.h"
+#include "gameevent.h"
+#include "techevent.h"
 
 
 //////////////////////////////////////////////////////////////////////
@@ -95,6 +97,11 @@ int main() {
 
     std::shared_ptr<AIModel> frontier = std::make_shared<FrontierAI>();
     std::cout << frontier->nume() << ": " << frontier->descriere() << "\n";
+
+    auto event = std::make_shared<TechEvent>();
+    std::cout << event->descriere() << "\n";
+    event->aplica(g);
+    std::cout << "Tura " << g.tura << " bani " << g.bani << "\n";
 
     std::array<int, 100> v{};
     int nr;
