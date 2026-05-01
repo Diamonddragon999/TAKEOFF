@@ -1,0 +1,9 @@
+{
+  "events": [
+    {"type": "tech", "name": "lansare model nou"},
+    {"type": "crisis", "name": "criza pe piata"},
+    {"type": "tech", "name": "deal cu pentagon"},
+    {"type": "crisis", "name": "scandal data leak"},
+    {"type": "tech", "name": "breakthrough la safety"}
+  ]
+}
