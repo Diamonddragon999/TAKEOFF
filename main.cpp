@@ -4,6 +4,8 @@
 #include <thread>
 #include <memory>
 #include <vector>
+#include <map>
+#include <algorithm>
 
 #include <SFML/Graphics.hpp>
 //////////////////////////////////////////////////////////////////////
@@ -124,6 +126,28 @@ int main() {
     std::cout << "tras: " << card->descriere() << "\n";
     card->aplica(g);
     std::cout << "Tura " << g.tura << " bani " << g.bani << "\n";
+
+    EventDeck<std::string> log;
+    log.push("inceput joc");
+    log.push("model lansat");
+    log.push("criza piata");
+    std::cout << "log size: " << log.size() << "\n";
+
+    std::vector<std::string> tipuri{"narrow", "frontier", "agentic", "asi"};
+    std::sort(tipuri.begin(), tipuri.end(), [](const std::string& a, const std::string& b) {
+        return a.size() < b.size();
+    });
+    std::cout << "tipuri sortate:";
+    for (const auto& t : tipuri) std::cout << " " << t;
+    std::cout << "\n";
+
+    std::map<std::string, int> scor;
+    scor["lab"] = 100;
+    scor["safety"] = 50;
+    scor["pentagon"] = 75;
+    for (const auto& kv : scor) {
+        std::cout << kv.first << " = " << kv.second << "\n";
+    }
 
     std::array<int, 100> v{};
     int nr;
