@@ -5,9 +5,9 @@
 
 #include <vector>
 
-GameEvent make_event(const nlohmann::json& j) {
+std::shared_ptr<GameEvent> make_event(const nlohmann::json& j) {
     if (j["type"] == "tech") {
-        return TechEvent{std::vector<Optiune>{}};
+        return std::make_shared<TechEvent>(std::vector<Optiune>{});
     }
-    return CrisisEvent{};
+    return std::make_shared<CrisisEvent>();
 }

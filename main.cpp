@@ -27,6 +27,10 @@
 #include "crisisevent.h"
 #include "optiune.h"
 #include "eventdeck.h"
+#include "eventloader.h"
+
+#include <fstream>
+#include <nlohmann/json.hpp>
 
 
 //////////////////////////////////////////////////////////////////////
@@ -148,6 +152,18 @@ int main() {
     for (const auto& kv : scor) {
         std::cout << kv.first << " = " << kv.second << "\n";
     }
+
+    auto path = std::filesystem::current_path().parent_path() / "resources" / "events.json";
+    std::ifstream f(path);
+    nlohmann::json data;
+    f >> data;
+    EventDeck<std::shared_ptr<GameEvent>> deck2;
+    for (const auto& je : data["events"]) {
+        deck2.push(make_event(je));
+    }
+    std::cout << "deck din json: " << deck2.size() << " carduri\n";
+    auto first = deck2.draw();
+    std::cout << "primul: " << first->descriere() << "\n";
 
     std::array<int, 100> v{};
     int nr;

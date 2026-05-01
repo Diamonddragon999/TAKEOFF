@@ -78,12 +78,12 @@ Nerespectarea duce la nepunctarea proiectului
   - ilustrati upcasting-ul în blocurile catch
   - minim folosit într-un loc în care tratarea erorilor în modurile clasice este mai dificilă
 - [x] folosirea unei clase abstracte [*](https://github.com/Ionnier/poo/tree/main/labs/L04#clase-abstracte)
-- [ ] clase template
-  - [ ] crearea unei clase template [*](https://github.com/Ionnier/poo/tree/main/labs/L08)
-  - [ ] 2 instanțieri ale acestei clase
-- [ ] STL [*](https://github.com/Ionnier/poo/tree/main/labs/L07#stl)
-  - [ ] utilizarea a două structuri (containere) diferite (vector, list sau orice alt container care e mai mult sau mai putin un array)
-  - [ ] utilizarea a unui algoritm cu funcție lambda (de exemplu, sort, transform)
+- [x] clase template
+  - [x] crearea unei clase template [*](https://github.com/Ionnier/poo/tree/main/labs/L08)
+  - [x] 2 instanțieri ale acestei clase
+- [x] STL [*](https://github.com/Ionnier/poo/tree/main/labs/L07#stl)
+  - [x] utilizarea a două structuri (containere) diferite (vector, list sau orice alt container care e mai mult sau mai putin un array)
+  - [x] utilizarea a unui algoritm cu funcție lambda (de exemplu, sort, transform)
 -  [ ] Design Patterns [*](https://github.com/Ionnier/poo/tree/main/labs/L08)
   - [ ] utilizarea a două șabloane de proiectare
 
