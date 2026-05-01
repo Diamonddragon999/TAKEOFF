@@ -24,6 +24,7 @@
 #include "techevent.h"
 #include "crisisevent.h"
 #include "optiune.h"
+#include "eventdeck.h"
 
 
 //////////////////////////////////////////////////////////////////////
@@ -113,6 +114,15 @@ int main() {
     auto criza = std::make_shared<CrisisEvent>();
     std::cout << criza->descriere() << "\n";
     criza->aplica(g);
+    std::cout << "Tura " << g.tura << " bani " << g.bani << "\n";
+
+    EventDeck<std::shared_ptr<GameEvent>> deck;
+    deck.push(std::make_shared<TechEvent>(opts));
+    deck.push(std::make_shared<CrisisEvent>());
+    std::cout << "deck are " << deck.size() << " carduri\n";
+    auto card = deck.draw();
+    std::cout << "tras: " << card->descriere() << "\n";
+    card->aplica(g);
     std::cout << "Tura " << g.tura << " bani " << g.bani << "\n";
 
     std::array<int, 100> v{};
