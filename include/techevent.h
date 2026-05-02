@@ -1,6 +1,7 @@
 #ifndef OOP_TECHEVENT_H
 #define OOP_TECHEVENT_H
 
+#include <string>
 #include <vector>
 
 #include "gameevent.h"
@@ -8,11 +9,13 @@
 
 class TechEvent : public GameEvent {
 public:
-    explicit TechEvent(std::vector<Optiune> optiuni);
-    std::string descriere() const override;
-    void aplica(GameState& state) const override;
+    TechEvent(std::string descriere, std::vector<Optiune> opts);
+
+    std::string eticheta() const override;
+    const std::vector<Optiune>& optiuni() const override;
+
 private:
-    std::vector<Optiune> optiuni;
+    std::vector<Optiune> opts;
 };
 
 #endif

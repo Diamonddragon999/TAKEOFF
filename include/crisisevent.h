@@ -1,12 +1,21 @@
 #ifndef OOP_CRISISEVENT_H
 #define OOP_CRISISEVENT_H
 
+#include <string>
+#include <vector>
+
 #include "gameevent.h"
+#include "optiune.h"
 
 class CrisisEvent : public GameEvent {
 public:
-    std::string descriere() const override;
-    void aplica(GameState& state) const override;
+    CrisisEvent(std::string descriere, std::vector<Optiune> opts);
+
+    std::string eticheta() const override;
+    const std::vector<Optiune>& optiuni() const override;
+
+private:
+    std::vector<Optiune> opts;
 };
 
 #endif

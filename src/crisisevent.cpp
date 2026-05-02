@@ -1,12 +1,16 @@
 #include "crisisevent.h"
-#include "gamestate.h"
+
+#include <utility>
+
+CrisisEvent::CrisisEvent(std::string descriere, std::vector<Optiune> o)
+    : GameEvent{std::move(descriere)}, opts{std::move(o)} {}
 
 // cppcheck-suppress unusedFunction
-std::string CrisisEvent::descriere() const {
-    return "criza pe piata";
+std::string CrisisEvent::eticheta() const {
+    return "[criza]";
 }
 
 // cppcheck-suppress unusedFunction
-void CrisisEvent::aplica(GameState& state) const {
-    state.incaseaza(-200);
+const std::vector<Optiune>& CrisisEvent::optiuni() const {
+    return opts;
 }

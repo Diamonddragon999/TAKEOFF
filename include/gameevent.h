@@ -2,14 +2,22 @@
 #define OOP_GAMEEVENT_H
 
 #include <string>
+#include <vector>
 
-class GameState;
+#include "optiune.h"
 
 class GameEvent {
 public:
+    explicit GameEvent(std::string descriere);
     virtual ~GameEvent() = default;
-    virtual std::string descriere() const = 0;
-    virtual void aplica(GameState& state) const = 0;
+
+    virtual std::string eticheta() const = 0;
+    virtual const std::vector<Optiune>& optiuni() const = 0;
+
+    std::string descriere() const;
+
+private:
+    std::string desc;
 };
 
 #endif

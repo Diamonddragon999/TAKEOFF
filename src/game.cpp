@@ -2,21 +2,34 @@
 #include "techevent.h"
 #include "crisisevent.h"
 #include "optiune.h"
+#include "effects.h"
 #include "exceptions.h"
 
 #include <iostream>
 #include <vector>
 
 Game::Game() {
-    deck.push(std::make_shared<TechEvent>(std::vector<Optiune>{
-        Optiune{"investeste in safety", -100},
-        Optiune{"lanseaza modelul", 500}
-    }));
-    deck.push(std::make_shared<CrisisEvent>());
-    deck.push(std::make_shared<TechEvent>(std::vector<Optiune>{
-        Optiune{"contract pentagon", 1000},
-        Optiune{"refuza contractul", 200}
-    }));
+    deck.push(std::make_shared<TechEvent>(
+        "lansare model nou",
+        std::vector<Optiune>{
+            Optiune{"investeste in safety", std::make_shared<SchimbAliniere>(15)},
+            Optiune{"lanseaza public, capabilitate +20", std::make_shared<SchimbCapabilitate>(20)}
+        }
+    ));
+    deck.push(std::make_shared<CrisisEvent>(
+        "criza pe piata",
+        std::vector<Optiune>{
+            Optiune{"reduceti pierderea", std::make_shared<SchimbBani>(-100)},
+            Optiune{"inghet activitati", std::make_shared<SchimbCapabilitate>(-10)}
+        }
+    ));
+    deck.push(std::make_shared<TechEvent>(
+        "contract pentagon",
+        std::vector<Optiune>{
+            Optiune{"semneaza, +1000 dar -10 aliniere", std::make_shared<SchimbBani>(1000)},
+            Optiune{"refuza, +200 dar +10 aliniere", std::make_shared<SchimbAliniere>(10)}
+        }
+    ));
 }
 
 void Game::ruleaza() {
@@ -25,15 +38,15 @@ void Game::ruleaza() {
         afiseazaStat();
         auto card = deck.draw();
         std::cout << "\n" << card->descriere() << "\n";
-        std::cout << "1. continua\n";
-        std::cout << "2. skip\n";
-        int alegere = citesteOptiune(2);
-        if (alegere == 1) {
-            try {
-                card->aplica(stat);
-            } catch (const TakeoffException& e) {
-                std::cout << "eroare: " << e.what() << "\n";
-            }
+        const auto& opts = card->optiuni();
+        for (size_t i = 0; i < opts.size(); ++i) {
+            std::cout << (i + 1) << ". " << opts[i].text << "\n";
+        }
+        int alegere = citesteOptiune(static_cast<int>(opts.size()));
+        try {
+            opts[alegere - 1].aplica(stat);
+        } catch (const TakeoffException& e) {
+            std::cout << "eroare: " << e.what() << "\n";
         }
         stat.avanseaza();
     }
@@ -61,6 +74,8 @@ void Game::verificaFinal() const {
         std::cout << "ai dat faliment\n";
     } else if (stat.getAliniere() < 30) {
         std::cout << "modelul a scapat de sub control\n";
+    } else if (stat.getCapabilitate() >= 200) {
+        std::cout << "ai atins ASI, ai castigat\n";
     } else {
         std::cout << "ai supravietuit\n";
     }
