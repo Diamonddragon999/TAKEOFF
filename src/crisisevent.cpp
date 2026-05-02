@@ -8,5 +8,5 @@ std::string CrisisEvent::descriere() const {
 
 // cppcheck-suppress unusedFunction
 void CrisisEvent::aplica(GameState& state) const {
-    state.bani -= 200;
+    state.incaseaza(-200);
 }
