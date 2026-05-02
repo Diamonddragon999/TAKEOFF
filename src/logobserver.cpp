@@ -4,7 +4,7 @@
 #include <iostream>
 
 // cppcheck-suppress unusedFunction
-void LogObserver::schimbat(GameState& s) {
+void LogObserver::schimbat(const GameState& s) {
     std::cout << "[log] tura " << s.getTura()
               << " bani " << s.getBani()
               << " cap " << s.getCapabilitate()

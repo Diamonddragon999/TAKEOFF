@@ -5,7 +5,7 @@
 
 class LogObserver : public GameStateObserver {
 public:
-    void schimbat(GameState& s) override;
+    void schimbat(const GameState& s) override;
 };
 
 #endif

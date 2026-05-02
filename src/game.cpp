@@ -42,7 +42,7 @@ void Game::ruleaza() {
         std::cout << "\n" << card->descriere() << "\n";
         const auto& opts = card->optiuni();
         for (size_t i = 0; i < opts.size(); ++i) {
-            std::cout << (i + 1) << ". " << opts[i].text << "\n";
+            std::cout << (i + 1) << ". " << opts[i] << "\n";
         }
         int alegere = citesteOptiune(static_cast<int>(opts.size()));
         try {
