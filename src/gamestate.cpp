@@ -1,6 +1,8 @@
 #include "gamestate.h"
 #include "exceptions.h"
 
+#include <utility>
+
 GameState::GameState() : tura{1}, bani{1000}, capabilitate{50}, aliniere{80} {}
 
 GameState::GameState(int t, int b, int cap, int alin)
@@ -21,23 +23,27 @@ int GameState::getAliniere() const { return aliniere; }
 // cppcheck-suppress unusedFunction
 void GameState::avanseaza() {
     tura++;
+    notifica();
 }
 
 // cppcheck-suppress unusedFunction
 void GameState::cheltuieste(int cost) {
     if (cost > bani) throw BugetInsuficient(bani, cost);
     bani -= cost;
+    notifica();
 }
 
 // cppcheck-suppress unusedFunction
 void GameState::incaseaza(int suma) {
     bani += suma;
+    notifica();
 }
 
 // cppcheck-suppress unusedFunction
 void GameState::schimbaCapabilitate(int delta) {
     capabilitate += delta;
     if (capabilitate < 0) capabilitate = 0;
+    notifica();
 }
 
 // cppcheck-suppress unusedFunction
@@ -45,4 +51,16 @@ void GameState::schimbaAliniere(int delta) {
     aliniere += delta;
     if (aliniere < 0) aliniere = 0;
     if (aliniere > 100) aliniere = 100;
+    notifica();
+}
+
+// cppcheck-suppress unusedFunction
+void GameState::atasaObserver(std::shared_ptr<GameStateObserver> obs) {
+    observatori.push_back(std::move(obs));
+}
+
+void GameState::notifica() const {
+    for (const auto& obs : observatori) {
+        obs->schimbat(*this);
+    }
 }

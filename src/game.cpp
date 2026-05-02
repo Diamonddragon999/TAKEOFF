@@ -4,11 +4,13 @@
 #include "optiune.h"
 #include "effects.h"
 #include "exceptions.h"
+#include "logobserver.h"
 
 #include <iostream>
 #include <vector>
 
 Game::Game() {
+    stat.atasaObserver(std::make_shared<LogObserver>());
     deck.push(std::make_shared<TechEvent>(
         "lansare model nou",
         std::vector<Optiune>{
