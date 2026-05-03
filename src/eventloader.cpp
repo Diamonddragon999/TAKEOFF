@@ -2,6 +2,7 @@
 #include "techevent.h"
 #include "crisisevent.h"
 #include "optiune.h"
+#include "effects.h"
 
 #include <string>
 #include <vector>
