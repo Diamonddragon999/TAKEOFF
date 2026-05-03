@@ -3,10 +3,13 @@
 
 #include <utility>
 
-GameState::GameState() : tura{1}, bani{1000}, capabilitate{50}, aliniere{80} {}
+GameState::GameState()
+    : tura{1}, bani{1000}, capabilitate{50}, aliniere{80},
+      model{std::make_shared<NarrowAI>()} {}
 
 GameState::GameState(int t, int b, int cap, int alin)
-    : tura{t}, bani{b}, capabilitate{cap}, aliniere{alin} {}
+    : tura{t}, bani{b}, capabilitate{cap}, aliniere{alin},
+      model{std::make_shared<NarrowAI>()} {}
 
 // cppcheck-suppress unusedFunction
 int GameState::getTura() const { return tura; }
@@ -19,6 +22,9 @@ int GameState::getCapabilitate() const { return capabilitate; }
 
 // cppcheck-suppress unusedFunction
 int GameState::getAliniere() const { return aliniere; }
+
+// cppcheck-suppress unusedFunction
+const AIModel& GameState::getModel() const { return *model; }
 
 // cppcheck-suppress unusedFunction
 void GameState::avanseaza() {

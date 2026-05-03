@@ -6,6 +6,8 @@
 
 #include "observer.h"
 
+class AIModel;
+
 class GameState {
 public:
     GameState();
@@ -15,6 +17,7 @@ public:
     int getBani() const;
     int getCapabilitate() const;
     int getAliniere() const;
+    const AIModel& getModel() const;
 
     void avanseaza();
     void cheltuieste(int cost);
@@ -29,6 +32,7 @@ private:
     int bani;
     int capabilitate;
     int aliniere;
+    std::shared_ptr<AIModel> model;
     std::vector<std::shared_ptr<GameStateObserver>> observatori;
 
     void notifica() const;
