@@ -70,13 +70,7 @@ void GameState::atasaObserver(std::shared_ptr<GameStateObserver> obs) {
 }
 
 void GameState::evolueaza() {
-    if (capabilitate >= 200) {
-        model = std::make_shared<AgenticAI>();
-    } else if (capabilitate >= 100) {
-        model = std::make_shared<FrontierAI>();
-    } else {
-        model = std::make_shared<NarrowAI>();
-    }
+    model = AIModel::creeazaPentruCap(capabilitate);
 }
 
 void GameState::notifica() const {
