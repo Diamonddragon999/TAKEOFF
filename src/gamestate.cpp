@@ -1,5 +1,6 @@
 #include "gamestate.h"
 #include "exceptions.h"
+#include "narrowai.h"
 
 #include <utility>
 
