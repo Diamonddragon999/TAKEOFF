@@ -1,6 +1,8 @@
 #include "gamestate.h"
 #include "exceptions.h"
 #include "narrowai.h"
+#include "frontierai.h"
+#include "agenticai.h"
 
 #include <utility>
 
@@ -50,6 +52,7 @@ void GameState::incaseaza(int suma) {
 void GameState::schimbaCapabilitate(int delta) {
     capabilitate += delta;
     if (capabilitate < 0) capabilitate = 0;
+    evolueaza();
     notifica();
 }
 
@@ -64,6 +67,16 @@ void GameState::schimbaAliniere(int delta) {
 // cppcheck-suppress unusedFunction
 void GameState::atasaObserver(std::shared_ptr<GameStateObserver> obs) {
     observatori.push_back(std::move(obs));
+}
+
+void GameState::evolueaza() {
+    if (capabilitate >= 200) {
+        model = std::make_shared<AgenticAI>();
+    } else if (capabilitate >= 100) {
+        model = std::make_shared<FrontierAI>();
+    } else {
+        model = std::make_shared<NarrowAI>();
+    }
 }
 
 void GameState::notifica() const {

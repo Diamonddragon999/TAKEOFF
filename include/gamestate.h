@@ -35,6 +35,7 @@ private:
     std::shared_ptr<AIModel> model;
     std::vector<std::shared_ptr<GameStateObserver>> observatori;
 
+    void evolueaza();
     void notifica() const;
 };
 

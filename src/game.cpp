@@ -1,4 +1,5 @@
 #include "game.h"
+#include "aimodel.h"
 #include "techevent.h"
 #include "crisisevent.h"
 #include "optiune.h"
@@ -61,7 +62,8 @@ void Game::afiseazaStat() const {
     std::cout << "tura " << stat.getTura()
               << " | bani " << stat.getBani()
               << " | cap " << stat.getCapabilitate()
-              << " | alin " << stat.getAliniere() << "\n";
+              << " | alin " << stat.getAliniere()
+              << " | model " << stat.getModel().nume() << "\n";
 }
 
 int Game::citesteOptiune(int max) const {
