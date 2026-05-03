@@ -10,6 +10,8 @@
 class CrisisEvent : public GameEvent {
 public:
     CrisisEvent(std::string descriere, std::vector<Optiune> opts);
+    CrisisEvent(const CrisisEvent& other);
+    CrisisEvent& operator=(const CrisisEvent& other);
 
     std::string eticheta() const override;
     const std::vector<Optiune>& optiuni() const override;

@@ -10,6 +10,8 @@
 class TechEvent : public GameEvent {
 public:
     TechEvent(std::string descriere, std::vector<Optiune> opts);
+    TechEvent(const TechEvent& other);
+    TechEvent& operator=(const TechEvent& other);
 
     std::string eticheta() const override;
     const std::vector<Optiune>& optiuni() const override;

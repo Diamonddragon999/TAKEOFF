@@ -1,5 +1,6 @@
 #include "game.h"
 #include "aimodel.h"
+#include "gameevent.h"
 #include "techevent.h"
 #include "crisisevent.h"
 #include "optiune.h"
@@ -54,6 +55,7 @@ void Game::ruleaza() {
     }
     std::cout << "\n--- final ---\n";
     afiseazaStat();
+    std::cout << "total evenimente: " << GameEvent::totalEvenimente() << "\n";
     verificaFinal();
 }
 
