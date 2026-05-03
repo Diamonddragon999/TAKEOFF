@@ -6,33 +6,27 @@
 #include "effects.h"
 #include "exceptions.h"
 #include "logobserver.h"
+#include "eventloader.h"
 
+#include <filesystem>
+#include <fstream>
 #include <iostream>
 #include <vector>
 
+#include <nlohmann/json.hpp>
+
 Game::Game() {
     stat.atasaObserver(std::make_shared<LogObserver>());
-    deck.push(std::make_shared<TechEvent>(
-        "lansare model nou",
-        std::vector<Optiune>{
-            Optiune{"investeste in safety", std::make_shared<SchimbAliniere>(15)},
-            Optiune{"lanseaza public, capabilitate +20", std::make_shared<SchimbCapabilitate>(20)}
+
+    auto path = std::filesystem::current_path().parent_path() / "resources" / "events.json";
+    std::ifstream f(path);
+    if (f) {
+        nlohmann::json data;
+        f >> data;
+        for (const auto& je : data["events"]) {
+            deck.push(make_event(je));
         }
-    ));
-    deck.push(std::make_shared<CrisisEvent>(
-        "criza pe piata",
-        std::vector<Optiune>{
-            Optiune{"reduceti pierderea", std::make_shared<SchimbBani>(-100)},
-            Optiune{"inghet activitati", std::make_shared<SchimbCapabilitate>(-10)}
-        }
-    ));
-    deck.push(std::make_shared<TechEvent>(
-        "contract pentagon",
-        std::vector<Optiune>{
-            Optiune{"semneaza, +1000 dar -10 aliniere", std::make_shared<SchimbBani>(1000)},
-            Optiune{"refuza, +200 dar +10 aliniere", std::make_shared<SchimbAliniere>(10)}
-        }
-    ));
+    }
 }
 
 void Game::ruleaza() {
