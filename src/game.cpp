@@ -35,6 +35,11 @@ void Game::ruleaza() {
         afiseazaStat();
         auto card = deck.draw();
         std::cout << "\n" << card->descriere() << "\n";
+        if (std::dynamic_pointer_cast<TechEvent>(card)) {
+            std::cout << "[oportunitate tehnologica]\n";
+        } else if (std::dynamic_pointer_cast<CrisisEvent>(card)) {
+            std::cout << "[criza]\n";
+        }
         const auto& opts = card->optiuni();
         for (size_t i = 0; i < opts.size(); ++i) {
             std::cout << (i + 1) << ". " << opts[i] << "\n";
