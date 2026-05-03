@@ -16,8 +16,11 @@ public:
 
     std::string descriere() const;
 
+    static int totalEvenimente();
+
 private:
     std::string desc;
+    static int contor;
 };
 
 #endif
