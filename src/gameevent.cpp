@@ -2,6 +2,8 @@
 
 #include <utility>
 
+int GameEvent::contor = 0;
+
 GameEvent::GameEvent(std::string d) : desc{std::move(d)} {
     ++contor;
 }
