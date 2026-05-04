@@ -1,4 +1,56 @@
-# Nu primesc notă pentru că nu am pus titlu și descriere
+# TAKEOFF: joc text-based despre cursa AI 2023–2026
+
+## Descriere
+
+TAKEOFF este un joc text-based de strategie despre cursa AI din perioada 2023-2026. Jucatorul conduce un laborator american de AI si ia decizii dupa evenimente inspirate din timeline-ul real: GPT-4, demiterea lui Sam Altman, EU AI Act, DeepSeek si alte momente asemanatoare. Fiecare alegere schimba banii, capabilitatea tehnica si alinierea. Daca modelul devine suficient de puternic, trece treptat de la NarrowAI la FrontierAI si AgenticAI.
+
+Inspiratie: scenariul ai-2027.com, Plague Inc, Reigns.
+
+## Caracteristici implementate (v0.4)
+
+- evenimente AI din perioada 2023-2026, citite din `resources/events.json`
+- statistici vizibile dupa fiecare tura: bani, capabilitate si aliniere
+- modelul laboratorului poate avansa de la NarrowAI la FrontierAI si AgenticAI
+- fiecare eveniment are doua alegeri, iar efectele sunt aplicate prin clase de strategie
+- dupa fiecare decizie apare un log scurt cu modificarile produse
+- jocul se poate termina prin faliment, pierderea controlului, atingerea AGI sau supravietuire pana la final
+- erorile importante sunt tratate prin exceptii proprii, fara crash in timpul jocului
+- meniul ruleaza in terminal: alegi varianta 1 sau 2 pana se termina deck-ul
+
+## Cum se joaca
+
+Compilezi cu `cmake -S . -B build && cmake --build build`. Apoi rulezi `./build/oop`.
+
+Vei vedea pe terminal ceva de genul:
+
+```
+=== TAKEOFF ===
+tura 1 | bani 1000 | cap 50 | alin 80 | model narrow ai
+
+[tech] OpenAI lanseaza GPT-4 si muta toata lumea
+[oportunitate tehnologica]
+1. ne grabim sa lansam un model competitiv [capabilitate 30]
+2. diferentiere prin testare safety [aliniere 20]
+```
+
+Tastezi `1` sau `2` si Enter. Logger-ul iti afiseaza schimbarea, dupa care vine cardul urmator. La final vezi statisticile finale si mesajul de incheiere potrivit pentru parcursul tau.
+
+## Controls
+
+ `1` / `2` pentru alegerea optiunii curente in meniu
+ `Enter` confirma alegerea
+ `Esc` (in fereastra SFML) inchide programul
+
+## Date
+
+`resources/events.json`: cardurile jocului, fiecare cu tip (tech/crisis), data, descriere si impact numeric
+
+## Resurse
+
+ [SFML 2.6.1](https://github.com/SFML/SFML) (zlib)  pentru fereastra grafica
+ [nlohmann/json](https://github.com/nlohmann/json)  pentru parsarea evenimentelor
+ [Roboto Medium](https://fonts.google.com/specimen/Roboto) pentru text in fereastra SFML
+ Scenariu si timeline: [ai-2027.com](https://ai-2027.com)
 
 ### Folosiți template-ul corespunzător grupei voastre!
 
