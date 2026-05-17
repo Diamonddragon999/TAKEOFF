@@ -8,6 +8,7 @@
 #include "exceptions.h"
 #include "logobserver.h"
 #include "eventloader.h"
+#include "color.h"
 
 #include <algorithm>
 #include <filesystem>
@@ -45,14 +46,14 @@ void Game::ruleaza() {
     while (!deck.empty()) {
         afiseazaStat();
         auto card = deck.draw();
-        std::cout << "\n" << card->descriere() << "\n";
+        const bool e_criza = std::dynamic_pointer_cast<CrisisEvent>(card) != nullptr;
+        const std::string titlu = card->descriere();
+        std::cout << "\n" << (e_criza ? col::redBold(titlu) : col::cyanBold(titlu)) << "\n";
 
-        if (std::dynamic_pointer_cast<TechEvent>(card)) {
-            std::cout << "[oportunitate tehnologica]\n";
-            contoareTipuri["tech"]++;
-        } else if (std::dynamic_pointer_cast<CrisisEvent>(card)) {
-            std::cout << "[criza]\n";
+        if (e_criza) {
             contoareTipuri["criza"]++;
+        } else if (std::dynamic_pointer_cast<TechEvent>(card)) {
+            contoareTipuri["tech"]++;
         }
         istoric.push(card->descriere());
 
@@ -77,9 +78,9 @@ void Game::ruleaza() {
 
 void Game::afiseazaStat() const {
     std::cout << "tura " << stat.getTura()
-              << " | bani " << stat.getBani()
-              << " | cap " << stat.getCapabilitate()
-              << " | alin " << stat.getAliniere()
+              << " | bani " << col::statBani(stat.getBani())
+              << " | cap " << col::statCap(stat.getCapabilitate())
+              << " | alin " << col::statAlin(stat.getAliniere())
               << " | model " << stat.getModel().nume() << "\n";
 }
 
@@ -105,13 +106,39 @@ void Game::afiseazaRecap() const {
 }
 
 void Game::verificaFinal() const {
-    if (stat.getBani() <= 0) {
-        std::cout << "ai dat faliment\n";
-    } else if (stat.getAliniere() < 30) {
-        std::cout << "modelul a scapat de sub control\n";
-    } else if (stat.getCapabilitate() >= 200) {
-        std::cout << "ai atins ASI, ai castigat\n";
+    const int b = stat.getBani();
+    const int c = stat.getCapabilitate();
+    const int a = stat.getAliniere();
+
+    if (b < 0) {
+        std::cout << col::redBold("FALIMENT.")
+                  << " Sediul din San Francisco se inchide vineri. "
+                     "Investitorii cer lichidare, GPU-urile vor fi scoase la licitatie.\n";
+    } else if (a < 25) {
+        std::cout << col::redBold("PIERDUT CONTROLUL.")
+                  << " Modelul tau a iesit din specificatii in productie. "
+                     "FBI a confiscat serverele din Bay Area. Cercetatorii-cheie sunt audiati.\n";
+    } else if (c >= 180 && a >= 60) {
+        std::cout << col::greenBold("AGI ALINIAT, AI CASTIGAT.")
+                  << " Lab-ul tau din Palo Alto a livrat primul model "
+                     "de generatie noua care trece evaluarile complete de siguranta. "
+                     "Presedintele te-a sunat personal. Tu setezi standardul de acum.\n";
+    } else if (c >= 180) {
+        std::cout << col::yellowBold("AGI DEZALINIAT.")
+                  << " Modelul tau de generatie noua e in productie. "
+                     "Comportamentul nu mai e predictibil, recall-ul nu mai e posibil. "
+                     "Doi cercetatori principali si-au dat demisia.\n";
+    } else if (b >= 1500 && c < 100) {
+        std::cout << col::cyanBold("SUCCES COMERCIAL.")
+                  << " Profitabili, cu contracte solide in Fortune 500. "
+                     "In cursa AGI insa, competitorii te-au depasit. Esti furnizor bun, nu pionier.\n";
+    } else if (a >= 85 && c < 100) {
+        std::cout << col::cyanBold("REPUTATIE FARA REZULTATE.")
+                  << " Citat in fiecare raport de politica AI din Washington. "
+                     "Modelele tale raman in urma celor de la OpenAI. Talentul de top pleaca acolo.\n";
     } else {
-        std::cout << "ai supravietuit\n";
+        std::cout << col::gray("SUPRAVIETUIRE.")
+                  << " Trei ani in cursa AI, fara faliment, fara breakthrough. "
+                     "Lab-ul tau din San Francisco exista in continuare. Nimeni nu mai vorbeste despre el.\n";
     }
 }

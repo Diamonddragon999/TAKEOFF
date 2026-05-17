@@ -7,7 +7,7 @@
 #include <utility>
 
 GameState::GameState()
-    : tura{1}, bani{1000}, capabilitate{50}, aliniere{80},
+    : tura{1}, bani{600}, capabilitate{30}, aliniere{70},
       model{std::make_shared<NarrowAI>()} {}
 
 GameState::GameState(int t, int b, int cap, int alin)

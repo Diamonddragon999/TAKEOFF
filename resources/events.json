@@ -3,291 +3,299 @@
     {
       "type": "tech",
       "date": "2023-01-23",
-      "event": "Microsoft anunta parteneriat de miliarde cu OpenAI",
+      "event": "2023-01: Microsoft investeste 10 miliarde in OpenAI",
       "impact_score": 9,
       "options": [
-        {"text": "negociem un deal hyperscaler la fel", "effect": "bani", "delta": 900},
-        {"text": "ramanem independenti pe aliniere", "effect": "alin", "delta": 18}
+        {"text": "pastram independenta financiara, comunicam diferentierea", "effect": "alin", "delta": 12},
+        {"text": "incheiem si noi un parteneriat cu un furnizor de cloud mare", "effect": "bani", "delta": 700, "secondary_effects": [{"effect": "alin", "delta": -12}, {"effect": "cap", "delta": 8}]}
       ]
     },
     {
       "type": "tech",
       "date": "2023-03-14",
-      "event": "OpenAI lanseaza GPT-4 si muta toata lumea",
+      "event": "2023-03: OpenAI lanseaza GPT-4, salt major fata de GPT-3.5",
       "impact_score": 10,
       "options": [
-        {"text": "ne grabim sa lansam un model competitiv", "effect": "cap", "delta": 30, "secondary_effects": [{"effect": "alin", "delta": -15}, {"effect": "bani", "delta": -100}]},
-        {"text": "diferentiere prin testare safety", "effect": "alin", "delta": 20, "secondary_effect": "bani", "secondary_delta": -200}
+        {"text": "pastram roadmap-ul si comunicam disciplina catre investitori", "effect": "cap", "delta": 10},
+        {"text": "inghetam doua proiecte secundare si mutam echipa pe un flagship", "effect": "cap", "delta": 35, "secondary_effects": [{"effect": "alin", "delta": -20}, {"effect": "bani", "delta": -250}]},
+        {"text": "ne pozitionam pe o nisa unde GPT-4 nu e optimizat", "effect": "bani", "delta": 500, "secondary_effects": [{"effect": "cap", "delta": -10}]}
       ]
     },
     {
       "type": "crisis",
       "date": "2023-05-30",
-      "event": "CAIS publica statementul despre risc de extinctie",
+      "event": "2023-05: CAIS publica scrisoarea despre riscul de extinctie",
       "impact_score": 8,
       "options": [
-        {"text": "semnam, atragem talent dar pierdem buget", "effect": "bani", "delta": -400},
-        {"text": "tacem si continuam tehnic", "effect": "alin", "delta": -16}
+        {"text": "semnam scrisoarea publica", "effect": "alin", "delta": 15, "secondary_effects": [{"effect": "bani", "delta": -300}]},
+        {"text": "evitam comunicarea publica si continuam lucrul tehnic", "effect": "cap", "delta": 12, "secondary_effects": [{"effect": "alin", "delta": -18}]}
       ]
     },
     {
       "type": "tech",
       "date": "2023-07-18",
-      "event": "Meta lanseaza Llama 2 open weights",
+      "event": "2023-07: Meta lanseaza Llama 2 cu greutati deschise",
       "impact_score": 9,
       "options": [
-        {"text": "deschidem si noi un model mai mic", "effect": "cap", "delta": 18, "secondary_effect": "alin", "secondary_delta": -10},
-        {"text": "ramanem closed pentru control", "effect": "alin", "delta": 18, "secondary_effect": "bani", "secondary_delta": -150}
+        {"text": "tinem modelul inchis si vindem siguranta ca avantaj", "effect": "alin", "delta": 12, "secondary_effects": [{"effect": "bani", "delta": -150}]},
+        {"text": "publicam un model mic pentru ecosistem", "effect": "cap", "delta": 25, "secondary_effects": [{"effect": "alin", "delta": -15}]},
+        {"text": "lansam un API ieftin sa tinem developerii aproape", "effect": "bani", "delta": 400, "secondary_effects": [{"effect": "cap", "delta": 10}]}
       ]
     },
     {
       "type": "crisis",
       "date": "2023-10-30",
-      "event": "Biden semneaza Executive Order pe AI",
+      "event": "2023-10: Biden semneaza ordinul executiv pentru AI",
       "impact_score": 9,
       "options": [
-        {"text": "ne conformam si raportam totul", "effect": "alin", "delta": 18, "secondary_effect": "cap", "secondary_delta": -10},
-        {"text": "lobby contra raportarii capabilitatii", "effect": "bani", "delta": -450, "secondary_effect": "alin", "secondary_delta": -12}
+        {"text": "ne conformam si raportam tot", "effect": "alin", "delta": 18, "secondary_effects": [{"effect": "cap", "delta": -8}]},
+        {"text": "facem lobby impotriva raportarii capabilitatilor", "effect": "bani", "delta": -550, "secondary_effects": [{"effect": "alin", "delta": -12}]}
       ]
     },
     {
       "type": "crisis",
       "date": "2023-11-01",
-      "event": "UK AI Safety Summit la Bletchley Park",
+      "event": "2023-11: UK AI Safety Summit la Bletchley Park",
       "impact_score": 9,
       "options": [
-        {"text": "semnam declaratia internationala", "effect": "alin", "delta": 18},
-        {"text": "trimitem doar observatori", "effect": "cap", "delta": 9}
+        {"text": "semnam declaratia internationala", "effect": "alin", "delta": 12},
+        {"text": "trimitem doar observatori", "effect": "cap", "delta": 8, "secondary_effects": [{"effect": "alin", "delta": -8}]}
       ]
     },
     {
       "type": "crisis",
       "date": "2023-11-17",
-      "event": "OpenAI board demite pe Sam Altman",
+      "event": "2023-11: Boardul OpenAI il demite pe Sam Altman",
       "impact_score": 10,
       "options": [
-        {"text": "sustinem boardul, semnal pe guvernanta", "effect": "alin", "delta": 20, "secondary_effect": "cap", "secondary_delta": -12},
-        {"text": "incercam sa atragem cercetatori OpenAI", "effect": "cap", "delta": 30, "secondary_effect": "bani", "secondary_delta": -300}
+        {"text": "sustinem boardul, semnal pe guvernanta", "effect": "alin", "delta": 15},
+        {"text": "deschidem oferte agresive pentru cercetatorii care pleaca", "effect": "cap", "delta": 35, "secondary_effects": [{"effect": "bani", "delta": -500}, {"effect": "alin", "delta": -8}]},
+        {"text": "publicam propria structura de guvernanta", "effect": "alin", "delta": 20, "secondary_effects": [{"effect": "bani", "delta": -250}]}
       ]
     },
     {
       "type": "tech",
       "date": "2023-12-06",
-      "event": "Google anunta Gemini 1.0 multimodal",
+      "event": "2023-12: Google lanseaza Gemini 1.0, model multimodal",
       "impact_score": 8,
       "options": [
-        {"text": "investim in capacitate multimodala", "effect": "cap", "delta": 16},
-        {"text": "ne concentram pe latura text", "effect": "bani", "delta": 600}
+        {"text": "ne uitam si invatam din lansarea lor", "effect": "cap", "delta": 8},
+        {"text": "investim mult in capabilitati multimodale", "effect": "cap", "delta": 28, "secondary_effects": [{"effect": "bani", "delta": -350}]}
       ]
     },
     {
       "type": "tech",
       "date": "2024-02-15",
-      "event": "OpenAI prezinta Sora text-to-video",
+      "event": "2024-02: OpenAI prezinta Sora, video generat din text",
       "impact_score": 9,
       "options": [
-        {"text": "facem propriu model video repede", "effect": "cap", "delta": 27, "secondary_effect": "alin", "secondary_delta": -14},
-        {"text": "publicam o pozitie pe deepfake", "effect": "alin", "delta": 18, "secondary_effect": "bani", "secondary_delta": -150}
+        {"text": "publicam o pozitie despre deepfake-uri", "effect": "alin", "delta": 15, "secondary_effects": [{"effect": "bani", "delta": -120}]},
+        {"text": "alocam o echipa pentru un model video propriu", "effect": "cap", "delta": 30, "secondary_effects": [{"effect": "alin", "delta": -18}, {"effect": "bani", "delta": -300}]},
+        {"text": "facem parteneriate cu studiouri si creatori", "effect": "bani", "delta": 600, "secondary_effects": [{"effect": "alin", "delta": 8}]}
       ]
     },
     {
       "type": "tech",
       "date": "2024-02-15",
-      "event": "Google anunta Gemini 1.5 cu 1M context",
+      "event": "2024-02: Google lanseaza Gemini 1.5 cu context de 1 milion",
       "impact_score": 9,
       "options": [
-        {"text": "marim contextul nostru pana la 1M", "effect": "cap", "delta": 27},
-        {"text": "investim in retrieval in loc de context", "effect": "bani", "delta": 700}
+        {"text": "investim in retrieval in loc de context lung", "effect": "bani", "delta": 500, "secondary_effects": [{"effect": "cap", "delta": 5}]},
+        {"text": "rescriem arhitectura pentru context masiv", "effect": "cap", "delta": 30, "secondary_effects": [{"effect": "bani", "delta": -450}]}
       ]
     },
     {
       "type": "tech",
       "date": "2024-03-04",
-      "event": "Anthropic lanseaza Claude 3 Opus",
+      "event": "2024-03: Anthropic lanseaza familia Claude 3 (Haiku, Sonnet, Opus)",
       "impact_score": 8,
       "options": [
-        {"text": "marim cheltuielile pe pretraining", "effect": "cap", "delta": 20},
-        {"text": "ne rezervam buget pentru aliniere", "effect": "alin", "delta": 16}
+        {"text": "rezervam bugetul pentru aliniere", "effect": "alin", "delta": 15},
+        {"text": "marim cheltuielile cu pretraining-ul", "effect": "cap", "delta": 22, "secondary_effects": [{"effect": "bani", "delta": -300}]}
       ]
     },
     {
       "type": "crisis",
       "date": "2024-03-13",
-      "event": "Parlamentul European aproba EU AI Act",
+      "event": "2024-03: Parlamentul European aproba EU AI Act",
       "impact_score": 9,
       "options": [
-        {"text": "ne pregatim de conformare in EU", "effect": "alin", "delta": 18},
-        {"text": "ne retragem partial din EU", "effect": "bani", "delta": -500}
+        {"text": "ne pregatim de conformare in UE", "effect": "alin", "delta": 16, "secondary_effects": [{"effect": "bani", "delta": -200}]},
+        {"text": "ne retragem din pietele UE cu cele mai stricte cerinte", "effect": "bani", "delta": -700, "secondary_effects": [{"effect": "cap", "delta": 12}]}
       ]
     },
     {
       "type": "tech",
       "date": "2024-05-13",
-      "event": "OpenAI lanseaza GPT-4o multimodal real-time",
+      "event": "2024-05: OpenAI lanseaza GPT-4o, voce si viziune in timp real",
       "impact_score": 10,
       "options": [
-        {"text": "investitie masiva in voice si vision", "effect": "cap", "delta": 30, "secondary_effect": "bani", "secondary_delta": -400},
-        {"text": "scoatem un produs voice limitat", "effect": "bani", "delta": 800, "secondary_effect": "cap", "secondary_delta": -8}
+        {"text": "scoatem un mod de voce limitat", "effect": "bani", "delta": 500, "secondary_effects": [{"effect": "cap", "delta": -5}]},
+        {"text": "investim masiv in voce si viziune", "effect": "cap", "delta": 32, "secondary_effects": [{"effect": "bani", "delta": -500}, {"effect": "alin", "delta": -12}]},
+        {"text": "amanam voce, investim in agenti text fiabili", "effect": "alin", "delta": 15, "secondary_effects": [{"effect": "cap", "delta": 5}]}
       ]
     },
     {
       "type": "tech",
       "date": "2024-06-21",
-      "event": "Anthropic lanseaza Claude 3.5 Sonnet pe coding",
+      "event": "2024-06: Anthropic lanseaza Claude 3.5 Sonnet, foarte bun pe cod",
       "impact_score": 9,
       "options": [
-        {"text": "lansam un agent de cod competitiv", "effect": "cap", "delta": 27},
-        {"text": "scaderea pretului ca atragere", "effect": "bani", "delta": -400}
+        {"text": "scadem preturile pentru a atrage clienti", "effect": "bani", "delta": -350, "secondary_effects": [{"effect": "cap", "delta": 5}]},
+        {"text": "alocam o echipa dedicata pentru un agent de cod", "effect": "cap", "delta": 28, "secondary_effects": [{"effect": "bani", "delta": -250}]}
       ]
     },
     {
       "type": "crisis",
       "date": "2024-08-01",
-      "event": "EU AI Act intra in vigoare",
+      "event": "2024-08: EU AI Act intra oficial in vigoare",
       "impact_score": 10,
       "options": [
-        {"text": "audit complet de conformitate", "effect": "alin", "delta": 20, "secondary_effect": "bani", "secondary_delta": -300},
-        {"text": "absorbim amenzile, prioritizam viteza", "effect": "bani", "delta": -700, "secondary_effect": "cap", "secondary_delta": 15}
+        {"text": "facem audit complet de conformitate", "effect": "alin", "delta": 18, "secondary_effects": [{"effect": "bani", "delta": -450}]},
+        {"text": "lansam inainte de audit si tratam conformitatea dupa", "effect": "bani", "delta": -250, "secondary_effects": [{"effect": "cap", "delta": 20}, {"effect": "alin", "delta": -10}]}
       ]
     },
     {
       "type": "tech",
       "date": "2024-09-12",
-      "event": "OpenAI lanseaza o1-preview cu reasoning la inferenta",
+      "event": "2024-09: OpenAI lanseaza o1, model care gandeste pas cu pas",
       "impact_score": 10,
       "options": [
-        {"text": "construim propriu model cu reasoning", "effect": "cap", "delta": 30},
-        {"text": "facem un research blog ca semnalizare", "effect": "alin", "delta": 15}
+        {"text": "publicam un position paper, evitam polemica", "effect": "alin", "delta": 12},
+        {"text": "construim propriul model cu rationament", "effect": "cap", "delta": 32, "secondary_effects": [{"effect": "bani", "delta": -500}]},
+        {"text": "lansam un benchmark public pe care suntem puternici", "effect": "alin", "delta": 8, "secondary_effects": [{"effect": "cap", "delta": 5}, {"effect": "bani", "delta": -100}]}
       ]
     },
     {
       "type": "tech",
       "date": "2024-10-22",
-      "event": "Anthropic introduce Claude computer use agentic",
+      "event": "2024-10: Anthropic lanseaza Claude cu acces la calculator",
       "impact_score": 9,
       "options": [
-        {"text": "ne uitam la agenti pe interfete grafice", "effect": "cap", "delta": 27},
-        {"text": "publicam un eval de safety pe agenti", "effect": "alin", "delta": 18}
+        {"text": "publicam o evaluare de siguranta pentru agenti", "effect": "alin", "delta": 16, "secondary_effects": [{"effect": "bani", "delta": -150}]},
+        {"text": "formam o echipa separata pentru agenti autonomi", "effect": "cap", "delta": 28, "secondary_effects": [{"effect": "alin", "delta": -15}]}
       ]
     },
     {
       "type": "crisis",
       "date": "2025-01-27",
-      "event": "DeepSeek R1 zguduie piata, Nvidia pierde masiv",
+      "event": "2025-01: DeepSeek R1 zguduie piata, Nvidia pierde mult",
       "impact_score": 10,
       "options": [
-        {"text": "tindem catre training mai eficient", "effect": "cap", "delta": 25, "secondary_effect": "alin", "secondary_delta": -12},
-        {"text": "lobby pentru export controls pe chinezi", "effect": "alin", "delta": -10, "secondary_effect": "bani", "secondary_delta": -250}
+        {"text": "studiem ce au facut si invatam treptat", "effect": "cap", "delta": 8},
+        {"text": "adoptam metodele lor de eficienta cat de repede putem", "effect": "cap", "delta": 30, "secondary_effects": [{"effect": "alin", "delta": -18}, {"effect": "bani", "delta": -200}]},
+        {"text": "pivotam pe modele mici, specializate si ieftine", "effect": "bani", "delta": 400, "secondary_effects": [{"effect": "cap", "delta": 12}, {"effect": "alin", "delta": -5}]}
       ]
     },
     {
       "type": "tech",
       "date": "2025-02-02",
-      "event": "OpenAI lanseaza Deep Research agentic",
+      "event": "2025-02: OpenAI lanseaza Deep Research in ChatGPT",
       "impact_score": 8,
       "options": [
-        {"text": "scoatem un research agent pentru piata noastra", "effect": "cap", "delta": 16},
-        {"text": "ne aliniem pe enterprise compliance", "effect": "alin", "delta": 16}
+        {"text": "ne aliniem la cerintele de conformitate pentru companii mari", "effect": "alin", "delta": 14},
+        {"text": "scoatem un research agent pentru piata noastra", "effect": "cap", "delta": 20, "secondary_effects": [{"effect": "bani", "delta": -250}]}
       ]
     },
     {
       "type": "tech",
       "date": "2025-02-24",
-      "event": "Anthropic lanseaza Claude 3.7 Sonnet si Claude Code",
+      "event": "2025-02: Anthropic lanseaza Claude 3.7 Sonnet si Claude Code",
       "impact_score": 9,
       "options": [
-        {"text": "lansam un coding agent competitiv", "effect": "cap", "delta": 27},
-        {"text": "ne diferentiem pe analiza static safety", "effect": "alin", "delta": 18}
+        {"text": "ne diferentiem prin analiza statica de siguranta", "effect": "alin", "delta": 16},
+        {"text": "alocam o echipa dedicata pentru un agent de cod", "effect": "cap", "delta": 25, "secondary_effects": [{"effect": "bani", "delta": -300}]}
       ]
     },
     {
       "type": "tech",
       "date": "2025-03-25",
-      "event": "Google introduce Gemini 2.5 Pro experimental",
+      "event": "2025-03: Google prezinta Gemini 2.5 Pro",
       "impact_score": 8,
       "options": [
-        {"text": "marim cheltuielile reasoning", "effect": "cap", "delta": 16},
-        {"text": "diferentiere pe latency", "effect": "bani", "delta": 600}
+        {"text": "ne diferentiem prin latenta mica", "effect": "bani", "delta": 450},
+        {"text": "marim cheltuielile pe rationament", "effect": "cap", "delta": 20, "secondary_effects": [{"effect": "bani", "delta": -400}]}
       ]
     },
     {
       "type": "tech",
       "date": "2025-04-16",
-      "event": "OpenAI lanseaza o3 si o4-mini, reasoning standard",
+      "event": "2025-04: OpenAI lanseaza o3 si o4-mini, rationamentul devine standard",
       "impact_score": 9,
       "options": [
-        {"text": "ne ridicam la nivelul reasoning standard", "effect": "cap", "delta": 27},
-        {"text": "investim in eval-uri academice publice", "effect": "alin", "delta": 18}
+        {"text": "investim in evaluari academice publice", "effect": "alin", "delta": 16, "secondary_effects": [{"effect": "bani", "delta": -200}]},
+        {"text": "ne ridicam la nivelul lor pe rationament", "effect": "cap", "delta": 28, "secondary_effects": [{"effect": "bani", "delta": -350}]}
       ]
     },
     {
       "type": "tech",
       "date": "2025-05-22",
-      "event": "Anthropic lanseaza Claude Opus 4 si Sonnet 4",
+      "event": "2025-05: Anthropic lanseaza Claude Opus 4 si Sonnet 4",
       "impact_score": 9,
       "options": [
-        {"text": "raspundem cu un upgrade flagship", "effect": "cap", "delta": 27},
-        {"text": "atragem clienti enterprise pe pret", "effect": "bani", "delta": 700}
+        {"text": "atragem clienti companii prin pret mic", "effect": "bani", "delta": 500, "secondary_effects": [{"effect": "cap", "delta": -8}]},
+        {"text": "raspundem cu un upgrade flagship", "effect": "cap", "delta": 28, "secondary_effects": [{"effect": "bani", "delta": -450}]}
       ]
     },
     {
       "type": "tech",
       "date": "2025-08-07",
-      "event": "OpenAI lanseaza GPT-5 ca flagship default",
+      "event": "2025-08: OpenAI lanseaza GPT-5 ca model principal",
       "impact_score": 10,
       "options": [
-        {"text": "punem totul pe modelul nostru next-gen", "effect": "cap", "delta": 30, "secondary_effect": "alin", "secondary_delta": -18},
-        {"text": "ne concentram pe enterprise verticals", "effect": "bani", "delta": 1000, "secondary_effect": "cap", "secondary_delta": -15}
+        {"text": "ne concentram pe verticale enterprise unde GPT-5 nu e optimizat", "effect": "bani", "delta": 800, "secondary_effects": [{"effect": "cap", "delta": -12}]},
+        {"text": "concentram toata echipa pe modelul nostru de generatie noua", "effect": "cap", "delta": 35, "secondary_effects": [{"effect": "alin", "delta": -22}, {"effect": "bani", "delta": -400}]},
+        {"text": "amanam si optimizam costurile de inferenta", "effect": "bani", "delta": 300, "secondary_effects": [{"effect": "alin", "delta": 10}, {"effect": "cap", "delta": 5}]}
       ]
     },
     {
       "type": "crisis",
       "date": "2026-02-03",
-      "event": "International AI Safety Report 2026",
+      "event": "2026-02: Raportul international pe siguranta AI 2026",
       "impact_score": 9,
       "options": [
-        {"text": "contribuim la raport cu evaluari", "effect": "alin", "delta": 18},
-        {"text": "minimalizam expunerea publica", "effect": "cap", "delta": 9}
+        {"text": "contribuim la raport cu evaluarile noastre", "effect": "alin", "delta": 16, "secondary_effects": [{"effect": "bani", "delta": -150}]},
+        {"text": "evitam comunicarea publica despre raport", "effect": "cap", "delta": 10, "secondary_effects": [{"effect": "alin", "delta": -8}]}
       ]
     },
     {
       "type": "crisis",
       "date": "2026-04-07",
-      "event": "Anthropic Mythos / Glasswing cyber capability",
+      "event": "2026-04: Mythos / Glasswing arata capabilitati de atac cibernetic",
       "impact_score": 10,
       "options": [
-        {"text": "construim propriul red team agent", "effect": "cap", "delta": 30},
-        {"text": "publicam policy de restrictii pe cyber", "effect": "alin", "delta": 20}
+        {"text": "publicam o politica de restrictii pe partea cyber", "effect": "alin", "delta": 18},
+        {"text": "construim propriul agent de red team", "effect": "cap", "delta": 32, "secondary_effects": [{"effect": "alin", "delta": -20}, {"effect": "bani", "delta": -300}]}
       ]
     },
     {
       "type": "crisis",
       "date": "2026-04-29",
-      "event": "Bundesbank cere acces UE la Mythos",
+      "event": "2026-04: Bundesbank cere acces UE la Mythos",
       "impact_score": 9,
       "options": [
-        {"text": "negociem acces cu autoritati EU", "effect": "alin", "delta": 18},
-        {"text": "tinem accesul restrictiv US-only", "effect": "bani", "delta": 700}
+        {"text": "negociem accesul cu autoritatile europene", "effect": "alin", "delta": 16},
+        {"text": "tinem accesul restrictionat doar pentru SUA", "effect": "bani", "delta": 600, "secondary_effects": [{"effect": "alin", "delta": -15}]}
       ]
     },
     {
       "type": "crisis",
       "date": "2026-04-29",
-      "event": "DeepSeek migreaza pe chip-uri Huawei",
+      "event": "2026-04: DeepSeek trece pe cipuri Huawei",
       "impact_score": 8,
       "options": [
-        {"text": "ne diversificam furnizorii de compute", "effect": "bani", "delta": -500},
-        {"text": "facem lobby pentru export controls", "effect": "alin", "delta": -10}
+        {"text": "diversificam furnizorii de calcul", "effect": "bani", "delta": -400, "secondary_effects": [{"effect": "cap", "delta": 5}]},
+        {"text": "facem lobby pentru controale de export", "effect": "alin", "delta": -12, "secondary_effects": [{"effect": "bani", "delta": -200}]}
       ]
     },
     {
       "type": "crisis",
       "date": "2026-04-30",
-      "event": "Casa Alba blocheaza extinderea Mythos",
+      "event": "2026-04: Casa Alba blocheaza extinderea Mythos",
       "impact_score": 10,
       "options": [
-        {"text": "acceptam restrictia, intram in registry", "effect": "alin", "delta": 20, "secondary_effect": "cap", "secondary_delta": -15},
-        {"text": "lobby pentru a redobandi acces", "effect": "bani", "delta": -700, "secondary_effect": "alin", "secondary_delta": -10}
+        {"text": "acceptam restrictia, intram in registru", "effect": "alin", "delta": 20, "secondary_effects": [{"effect": "cap", "delta": -15}]},
+        {"text": "facem lobby sa redobandim accesul", "effect": "bani", "delta": -700, "secondary_effects": [{"effect": "alin", "delta": -12}, {"effect": "cap", "delta": 8}]}
       ]
     }
   ]

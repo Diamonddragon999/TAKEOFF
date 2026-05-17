@@ -1,5 +1,6 @@
 #include "effects.h"
 #include "gamestate.h"
+#include "color.h"
 
 #include <string>
 
@@ -12,7 +13,7 @@ void SchimbBani::aplica(GameState& s) const {
 
 // cppcheck-suppress unusedFunction
 std::string SchimbBani::descriere() const {
-    return "bani " + std::to_string(delta);
+    return "bani " + col::delta(delta);
 }
 
 SchimbCapabilitate::SchimbCapabilitate(int d) : delta{d} {}
@@ -24,7 +25,7 @@ void SchimbCapabilitate::aplica(GameState& s) const {
 
 // cppcheck-suppress unusedFunction
 std::string SchimbCapabilitate::descriere() const {
-    return "capabilitate " + std::to_string(delta);
+    return "capabilitate " + col::delta(delta);
 }
 
 SchimbAliniere::SchimbAliniere(int d) : delta{d} {}
@@ -36,5 +37,5 @@ void SchimbAliniere::aplica(GameState& s) const {
 
 // cppcheck-suppress unusedFunction
 std::string SchimbAliniere::descriere() const {
-    return "aliniere " + std::to_string(delta);
+    return "aliniere " + col::delta(delta);
 }
