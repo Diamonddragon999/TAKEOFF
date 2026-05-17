@@ -88,6 +88,7 @@ void Game::ruleaza() {
     }
 }
 
+// cppcheck-suppress unusedFunction
 void Game::seteazaCheieAPI(const std::string& cheie) {
     sumar.seteazaCheie(cheie);
 }
