@@ -17,8 +17,8 @@ public:
     // cppcheck-suppress unusedFunction
     T draw() {
         if (cards.empty()) throw TakeoffException("deck gol");
-        T item = std::move(cards.back());
-        cards.pop_back();
+        T item = std::move(cards.front());
+        cards.erase(cards.begin());
         return item;
     }
 
