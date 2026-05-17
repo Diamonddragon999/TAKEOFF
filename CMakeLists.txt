@@ -120,6 +120,7 @@ include(FetchContent)
 # )
 # FetchContent_MakeAvailable(googletest)
 
+set(SFML_BUILD_AUDIO FALSE CACHE BOOL "" FORCE)
 FetchContent_Declare(
     SFML
     GIT_REPOSITORY https://github.com/SFML/SFML.git
