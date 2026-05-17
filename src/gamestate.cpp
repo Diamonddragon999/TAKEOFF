@@ -31,6 +31,14 @@ const AIModel& GameState::getModel() const { return *model; }
 
 // cppcheck-suppress unusedFunction
 void GameState::avanseaza() {
+    aliniere -= 2;
+    if (aliniere < 0) aliniere = 0;
+
+    int upkeep = 30;
+    if (capabilitate >= 100) upkeep = 80;
+    if (capabilitate >= 200) upkeep = 200;
+    bani -= upkeep;
+
     tura++;
     notifica();
 }

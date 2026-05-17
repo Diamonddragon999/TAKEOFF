@@ -135,29 +135,29 @@ std::string Game::verificaFinal() const {
         body = " Sediul din San Francisco se inchide vineri. "
                "Investitorii cer lichidare, GPU-urile vor fi scoase la licitatie.";
         colored = col::redBold(label);
-    } else if (a < 25) {
+    } else if (a < 30) {
         label = "PIERDUT CONTROLUL.";
         body = " Modelul tau a iesit din specificatii in productie. "
                "FBI a confiscat serverele din Bay Area. Cercetatorii-cheie sunt audiati.";
         colored = col::redBold(label);
-    } else if (c >= 180 && a >= 60) {
+    } else if (c >= 200 && a >= 60) {
         label = "AGI ALINIAT, AI CASTIGAT.";
         body = " Lab-ul tau din Palo Alto a livrat primul model "
                "de generatie noua care trece evaluarile complete de siguranta. "
                "Presedintele te-a sunat personal. Tu setezi standardul de acum.";
         colored = col::greenBold(label);
-    } else if (c >= 180) {
+    } else if (c >= 200) {
         label = "AGI DEZALINIAT.";
         body = " Modelul tau de generatie noua e in productie. "
                "Comportamentul nu mai e predictibil, recall-ul nu mai e posibil. "
                "Doi cercetatori principali si-au dat demisia.";
         colored = col::yellowBold(label);
-    } else if (b >= 1500 && c < 100) {
+    } else if (b >= 2500 && c < 100) {
         label = "SUCCES COMERCIAL.";
         body = " Profitabili, cu contracte solide in Fortune 500. "
                "In cursa AGI insa, competitorii te-au depasit. Esti furnizor bun, nu pionier.";
         colored = col::cyanBold(label);
-    } else if (a >= 85 && c < 100) {
+    } else if (a >= 95 && c < 100) {
         label = "REPUTATIE FARA REZULTATE.";
         body = " Citat in fiecare raport de politica AI din Washington. "
                "Modelele tale raman in urma celor de la OpenAI. Talentul de top pleaca acolo.";

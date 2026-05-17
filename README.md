@@ -1,4 +1,4 @@
-TAKEOFF: joc text-based despre cursa AI 2023–2026
+# TAKEOFF: joc despre cursa AI 2023 - 2026
 
 ## Descriere
 
@@ -6,7 +6,7 @@ TAKEOFF este un joc in terminal de strategie despre cursa AI din perioada 2023-2
 
 Inspiratie: scenariul ai-2027.com, Plague Inc, Reigns.
 
-## Caracteristici implementate (v0.4)
+## Caracteristici implementate (v0.5)
 
 1. evenimente AI din perioada 2023-2026, citite din `resources/events.json`
 2. statistici vizibile dupa fiecare tura: bani, capabilitate si aliniere
@@ -15,13 +15,32 @@ Inspiratie: scenariul ai-2027.com, Plague Inc, Reigns.
 5. dupa fiecare decizie apare un log scurt cu modificarile produse
 6. jocul se poate termina prin faliment, pierderea controlului, atingerea AGI sau supravietuire pana la final
 7. erorile importante sunt tratate prin exceptii proprii, fara crash in timpul jocului
-8. meniul ruleaza in terminal: alegi varianta 1 sau 2 pana se termina deck-ul
+8. meniu in terminal: alegi varianta 1 sau 2 pana se termina deck-ul
+9. sistem de culori ANSI: statistici colorate dinamic (verde/galben/rosu dupa valoare)
+10. rezumat AI generat cu Gemini 3.1 flash: dupa ce se termina jocul, API-ul genereaza o analiza personalizata a strategiei tale bazata pe deciziile facute
 
 ## Cum se joaca
 
-Jocum se compileaza   cu `cmake -S . -B build && cmake --build build`. Apoi rulezi `./build/oop`.
+Jocul se compileaza cu `cmake -S . -B build && cmake --build build`. Apoi rulezi `./build/oop`.
 
-Tastezi `1` sau `2` si Enter. Logger-ul iti afiseaza schimbarea, dupa care vine cardul urmator. La final vezi statisticile finale si mesajul de incheiere potrivit pentru endingul la care ai ajuns.
+Tastezi `1` sau `2` si Enter. Logger-ul colorat iti afiseaza schimbarile statisticilor (bani, capabilitate, aliniere), dupa care vine cardul urmator. La final vezi statisticile finale si mesajul de incheiere potrivit.
+
+### API Gemini (optional)
+
+Pentru a primi un rezumat AI personalizat dupa ce se termina jocul:
+
+1. Seteaza variabila de mediu cu cheia ta Gemini:
+```bash
+export GEMINI_API_KEY="ta-cheie-api-aqui"
+./build/oop
+```
+
+2. Sau introdu cheia direct cand programul o cere:
+```
+Cheie Gemini API (Enter ca sa sari peste rezumatul final): [introdu cheia]
+```
+
+Daca nu ai cheie, doar apasa Enter si jocul se termina normal fara rezumat.
 
 ## Controls
 
@@ -34,8 +53,8 @@ Tastezi `1` sau `2` si Enter. Logger-ul iti afiseaza schimbarea, dupa care vine 
 
 ## Resurse
 
- [nlohmann/json](https://github.com/nlohmann/json)  pentru parsarea evenimentelor
- [Roboto Medium](https://fonts.google.com/specimen/Roboto) pentru text in fereastra SFML
+ [nlohmann/json](https://github.com/nlohmann/json) :  parsarea evenimentelor din JSON
+ [Google Gemini API](https://ai.google.dev/): generare rezumatului final AI
  Scenariu si timeline: [ai-2027.com](https://ai-2027.com)
 
 ### Folosiți template-ul corespunzător grupei voastre!
