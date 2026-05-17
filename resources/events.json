@@ -16,7 +16,7 @@
       "event": "OpenAI lanseaza GPT-4 si muta toata lumea",
       "impact_score": 10,
       "options": [
-        {"text": "ne grabim sa lansam un model competitiv", "effect": "cap", "delta": 30, "secondary_effect": "alin", "secondary_delta": -15},
+        {"text": "ne grabim sa lansam un model competitiv", "effect": "cap", "delta": 30, "secondary_effects": [{"effect": "alin", "delta": -15}, {"effect": "bani", "delta": -100}]},
         {"text": "diferentiere prin testare safety", "effect": "alin", "delta": 20, "secondary_effect": "bani", "secondary_delta": -200}
       ]
     },

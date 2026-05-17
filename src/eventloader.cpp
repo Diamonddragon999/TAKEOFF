@@ -25,16 +25,23 @@ std::shared_ptr<GameEvent> make_event(const nlohmann::json& j) {
         std::string text = opt.value("text", std::string{"continua"});
         std::string kind = opt.value("effect", std::string{"bani"});
         int delta = opt.value("delta", 0);
-        auto primar = make_effect(kind, delta);
+        std::shared_ptr<DecisionEffect> efect = make_effect(kind, delta);
 
-        if (opt.contains("secondary_effect") && opt.contains("secondary_delta")) {
+        if (opt.contains("secondary_effects") && opt["secondary_effects"].is_array()) {
+            for (const auto& sec : opt["secondary_effects"]) {
+                std::string kind2 = sec.value("effect", std::string{"bani"});
+                int delta2 = sec.value("delta", 0);
+                auto urmator = make_effect(kind2, delta2);
+                efect = std::make_shared<SchimbCompozit>(efect, urmator);
+            }
+        } else if (opt.contains("secondary_effect") && opt.contains("secondary_delta")) {
             std::string kind2 = opt["secondary_effect"].get<std::string>();
             int delta2 = opt["secondary_delta"].get<int>();
             auto secundar = make_effect(kind2, delta2);
-            opts.emplace_back(text, std::make_shared<SchimbCompozit>(primar, secundar));
-        } else {
-            opts.emplace_back(text, primar);
+            efect = std::make_shared<SchimbCompozit>(efect, secundar);
         }
+
+        opts.emplace_back(text, efect);
     }
 
     if (type == "crisis") {
