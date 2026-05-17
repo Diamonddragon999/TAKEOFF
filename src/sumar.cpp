@@ -7,14 +7,17 @@
 
 #include <nlohmann/json.hpp>
 
+// cppcheck-suppress unusedFunction
 void Sumar::inregistreaza(const std::string& titluCard, const std::string& alegere) {
     decizii.emplace_back(titluCard, alegere);
 }
 
+// cppcheck-suppress unusedFunction
 void Sumar::seteazaCheie(const std::string& cheie) {
     apiKey = cheie;
 }
 
+// cppcheck-suppress unusedFunction
 void Sumar::seteazaFinal(int bani, int cap, int alin, const std::string& ending) {
     finalBani = bani;
     finalCap = cap;
@@ -22,6 +25,7 @@ void Sumar::seteazaFinal(int bani, int cap, int alin, const std::string& ending)
     endingText = ending;
 }
 
+// cppcheck-suppress unusedFunction
 bool Sumar::areCheie() const {
     return !apiKey.empty();
 }
@@ -105,6 +109,7 @@ std::string Sumar::apeleazaGemini(const std::string& prompt) const {
     }
 }
 
+// cppcheck-suppress unusedFunction
 std::string Sumar::genereaza() const {
     if (apiKey.empty() || decizii.empty()) return "";
     return apeleazaGemini(construiestePrompt());
