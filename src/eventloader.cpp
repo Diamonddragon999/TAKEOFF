@@ -3,6 +3,7 @@
 #include "crisisevent.h"
 #include "optiune.h"
 #include "effects.h"
+#include "schimbcompozit.h"
 
 #include <string>
 #include <vector>
@@ -24,7 +25,16 @@ std::shared_ptr<GameEvent> make_event(const nlohmann::json& j) {
         std::string text = opt.value("text", std::string{"continua"});
         std::string kind = opt.value("effect", std::string{"bani"});
         int delta = opt.value("delta", 0);
-        opts.emplace_back(text, make_effect(kind, delta));
+        auto primar = make_effect(kind, delta);
+
+        if (opt.contains("secondary_effect") && opt.contains("secondary_delta")) {
+            std::string kind2 = opt["secondary_effect"].get<std::string>();
+            int delta2 = opt["secondary_delta"].get<int>();
+            auto secundar = make_effect(kind2, delta2);
+            opts.emplace_back(text, std::make_shared<SchimbCompozit>(primar, secundar));
+        } else {
+            opts.emplace_back(text, primar);
+        }
     }
 
     if (type == "crisis") {

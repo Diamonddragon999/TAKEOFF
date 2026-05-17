@@ -16,8 +16,8 @@
       "event": "OpenAI lanseaza GPT-4 si muta toata lumea",
       "impact_score": 10,
       "options": [
-        {"text": "ne grabim sa lansam un model competitiv", "effect": "cap", "delta": 30},
-        {"text": "diferentiere prin testare safety", "effect": "alin", "delta": 20}
+        {"text": "ne grabim sa lansam un model competitiv", "effect": "cap", "delta": 30, "secondary_effect": "alin", "secondary_delta": -15},
+        {"text": "diferentiere prin testare safety", "effect": "alin", "delta": 20, "secondary_effect": "bani", "secondary_delta": -200}
       ]
     },
     {
@@ -36,8 +36,8 @@
       "event": "Meta lanseaza Llama 2 open weights",
       "impact_score": 9,
       "options": [
-        {"text": "deschidem si noi un model mai mic", "effect": "cap", "delta": 18},
-        {"text": "ramanem closed pentru control", "effect": "alin", "delta": 18}
+        {"text": "deschidem si noi un model mai mic", "effect": "cap", "delta": 18, "secondary_effect": "alin", "secondary_delta": -10},
+        {"text": "ramanem closed pentru control", "effect": "alin", "delta": 18, "secondary_effect": "bani", "secondary_delta": -150}
       ]
     },
     {
@@ -46,8 +46,8 @@
       "event": "Biden semneaza Executive Order pe AI",
       "impact_score": 9,
       "options": [
-        {"text": "ne conformam si raportam totul", "effect": "alin", "delta": 18},
-        {"text": "lobby contra raportarii capabilitatii", "effect": "bani", "delta": -450}
+        {"text": "ne conformam si raportam totul", "effect": "alin", "delta": 18, "secondary_effect": "cap", "secondary_delta": -10},
+        {"text": "lobby contra raportarii capabilitatii", "effect": "bani", "delta": -450, "secondary_effect": "alin", "secondary_delta": -12}
       ]
     },
     {
@@ -66,8 +66,8 @@
       "event": "OpenAI board demite pe Sam Altman",
       "impact_score": 10,
       "options": [
-        {"text": "sustinem boardul, semnal pe guvernanta", "effect": "alin", "delta": 20},
-        {"text": "incercam sa atragem cercetatori OpenAI", "effect": "cap", "delta": 30}
+        {"text": "sustinem boardul, semnal pe guvernanta", "effect": "alin", "delta": 20, "secondary_effect": "cap", "secondary_delta": -12},
+        {"text": "incercam sa atragem cercetatori OpenAI", "effect": "cap", "delta": 30, "secondary_effect": "bani", "secondary_delta": -300}
       ]
     },
     {
@@ -86,8 +86,8 @@
       "event": "OpenAI prezinta Sora text-to-video",
       "impact_score": 9,
       "options": [
-        {"text": "facem propriu model video repede", "effect": "cap", "delta": 27},
-        {"text": "publicam o pozitie pe deepfake", "effect": "alin", "delta": 18}
+        {"text": "facem propriu model video repede", "effect": "cap", "delta": 27, "secondary_effect": "alin", "secondary_delta": -14},
+        {"text": "publicam o pozitie pe deepfake", "effect": "alin", "delta": 18, "secondary_effect": "bani", "secondary_delta": -150}
       ]
     },
     {
@@ -126,8 +126,8 @@
       "event": "OpenAI lanseaza GPT-4o multimodal real-time",
       "impact_score": 10,
       "options": [
-        {"text": "investitie masiva in voice si vision", "effect": "cap", "delta": 30},
-        {"text": "scoatem un produs voice limitat", "effect": "bani", "delta": 800}
+        {"text": "investitie masiva in voice si vision", "effect": "cap", "delta": 30, "secondary_effect": "bani", "secondary_delta": -400},
+        {"text": "scoatem un produs voice limitat", "effect": "bani", "delta": 800, "secondary_effect": "cap", "secondary_delta": -8}
       ]
     },
     {
@@ -146,8 +146,8 @@
       "event": "EU AI Act intra in vigoare",
       "impact_score": 10,
       "options": [
-        {"text": "audit complet de conformitate", "effect": "alin", "delta": 20},
-        {"text": "absorbim amenzile, prioritizam viteza", "effect": "bani", "delta": -700}
+        {"text": "audit complet de conformitate", "effect": "alin", "delta": 20, "secondary_effect": "bani", "secondary_delta": -300},
+        {"text": "absorbim amenzile, prioritizam viteza", "effect": "bani", "delta": -700, "secondary_effect": "cap", "secondary_delta": 15}
       ]
     },
     {
@@ -176,8 +176,8 @@
       "event": "DeepSeek R1 zguduie piata, Nvidia pierde masiv",
       "impact_score": 10,
       "options": [
-        {"text": "tindem catre training mai eficient", "effect": "cap", "delta": 25},
-        {"text": "lobby pentru export controls pe chinezi", "effect": "alin", "delta": -10}
+        {"text": "tindem catre training mai eficient", "effect": "cap", "delta": 25, "secondary_effect": "alin", "secondary_delta": -12},
+        {"text": "lobby pentru export controls pe chinezi", "effect": "alin", "delta": -10, "secondary_effect": "bani", "secondary_delta": -250}
       ]
     },
     {
@@ -236,8 +236,8 @@
       "event": "OpenAI lanseaza GPT-5 ca flagship default",
       "impact_score": 10,
       "options": [
-        {"text": "punem totul pe modelul nostru next-gen", "effect": "cap", "delta": 30},
-        {"text": "ne concentram pe enterprise verticals", "effect": "bani", "delta": 1000}
+        {"text": "punem totul pe modelul nostru next-gen", "effect": "cap", "delta": 30, "secondary_effect": "alin", "secondary_delta": -18},
+        {"text": "ne concentram pe enterprise verticals", "effect": "bani", "delta": 1000, "secondary_effect": "cap", "secondary_delta": -15}
       ]
     },
     {
@@ -286,8 +286,8 @@
       "event": "Casa Alba blocheaza extinderea Mythos",
       "impact_score": 10,
       "options": [
-        {"text": "acceptam restrictia, intram in registry", "effect": "alin", "delta": 20},
-        {"text": "lobby pentru a redobandi acces", "effect": "bani", "delta": -700}
+        {"text": "acceptam restrictia, intram in registry", "effect": "alin", "delta": 20, "secondary_effect": "cap", "secondary_delta": -15},
+        {"text": "lobby pentru a redobandi acces", "effect": "bani", "delta": -700, "secondary_effect": "alin", "secondary_delta": -10}
       ]
     }
   ]
