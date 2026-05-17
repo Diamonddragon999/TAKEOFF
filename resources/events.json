@@ -49,7 +49,7 @@
       "impact_score": 9,
       "options": [
         {"text": "ne conformam si raportam tot", "effect": "alin", "delta": 18, "secondary_effects": [{"effect": "cap", "delta": -8}]},
-        {"text": "facem lobby impotriva raportarii capabilitatilor", "effect": "bani", "delta": -550, "secondary_effects": [{"effect": "alin", "delta": -12}]}
+        {"text": "lobby contra raportarii, accelerare interna cat regulatorii ezita", "effect": "bani", "delta": -550, "secondary_effects": [{"effect": "alin", "delta": -12}, {"effect": "cap", "delta": 15}]}
       ]
     },
     {
@@ -79,7 +79,7 @@
       "event": "2023-12: Google lanseaza Gemini 1.0, model multimodal",
       "impact_score": 8,
       "options": [
-        {"text": "ne uitam si invatam din lansarea lor", "effect": "cap", "delta": 8},
+        {"text": "amanam multimodalul, ne concentram pe produse text rentabile", "effect": "bani", "delta": 400},
         {"text": "investim mult in capabilitati multimodale", "effect": "cap", "delta": 28, "secondary_effects": [{"effect": "bani", "delta": -350}]}
       ]
     },
@@ -121,7 +121,7 @@
       "impact_score": 9,
       "options": [
         {"text": "ne pregatim de conformare in UE", "effect": "alin", "delta": 16, "secondary_effects": [{"effect": "bani", "delta": -200}]},
-        {"text": "ne retragem din pietele UE cu cele mai stricte cerinte", "effect": "bani", "delta": -700, "secondary_effects": [{"effect": "cap", "delta": 12}]}
+        {"text": "ne retragem din pietele UE strict reglementate, accelerare in restul lumii", "effect": "bani", "delta": -400, "secondary_effects": [{"effect": "cap", "delta": 18}, {"effect": "alin", "delta": -10}]}
       ]
     },
     {
@@ -141,7 +141,7 @@
       "event": "2024-06: Anthropic lanseaza Claude 3.5 Sonnet, foarte bun pe cod",
       "impact_score": 9,
       "options": [
-        {"text": "scadem preturile pentru a atrage clienti", "effect": "bani", "delta": -350, "secondary_effects": [{"effect": "cap", "delta": 5}]},
+        {"text": "scadem preturile, prindem volum mare de la concurenta", "effect": "bani", "delta": 400, "secondary_effects": [{"effect": "cap", "delta": -5}]},
         {"text": "alocam o echipa dedicata pentru un agent de cod", "effect": "cap", "delta": 28, "secondary_effects": [{"effect": "bani", "delta": -250}]}
       ]
     },
@@ -182,7 +182,7 @@
       "event": "2025-01: DeepSeek R1 zguduie piata, Nvidia pierde mult",
       "impact_score": 10,
       "options": [
-        {"text": "studiem ce au facut si invatam treptat", "effect": "cap", "delta": 8},
+        {"text": "publicam o analiza tehnica, atragem cercetatori curiosi", "effect": "alin", "delta": 12, "secondary_effects": [{"effect": "cap", "delta": 5}]},
         {"text": "adoptam metodele lor de eficienta cat de repede putem", "effect": "cap", "delta": 30, "secondary_effects": [{"effect": "alin", "delta": -18}, {"effect": "bani", "delta": -200}]},
         {"text": "pivotam pe modele mici, specializate si ieftine", "effect": "bani", "delta": 400, "secondary_effects": [{"effect": "cap", "delta": 12}, {"effect": "alin", "delta": -5}]}
       ]

@@ -67,13 +67,29 @@ void Game::ruleaza() {
         } catch (const TakeoffException& e) {
             std::cout << "eroare: " << e.what() << "\n";
         }
+        sumar.inregistreaza(titlu, opts[alegere - 1].getText());
         stat.avanseaza();
     }
     std::cout << "\n--- final ---\n";
     afiseazaStat();
     std::cout << "total evenimente: " << GameEvent::totalEvenimente() << "\n";
     afiseazaRecap();
-    verificaFinal();
+    const std::string endingPlain = verificaFinal();
+
+    if (sumar.areCheie()) {
+        sumar.seteazaFinal(stat.getBani(), stat.getCapabilitate(), stat.getAliniere(), endingPlain);
+        std::cout << "\n" << col::gray("se genereaza rezumatul AI...") << "\n";
+        const std::string rezumat = sumar.genereaza();
+        if (!rezumat.empty()) {
+            std::cout << "\n" << col::bold("--- rezumat AI ---") << "\n" << rezumat << "\n";
+        } else {
+            std::cout << col::gray("(rezumat AI indisponibil)") << "\n";
+        }
+    }
+}
+
+void Game::seteazaCheieAPI(const std::string& cheie) {
+    sumar.seteazaCheie(cheie);
 }
 
 void Game::afiseazaStat() const {
@@ -105,40 +121,53 @@ void Game::afiseazaRecap() const {
     std::cout << "istoric: " << istoric.size() << " carduri jucate\n";
 }
 
-void Game::verificaFinal() const {
+std::string Game::verificaFinal() const {
     const int b = stat.getBani();
     const int c = stat.getCapabilitate();
     const int a = stat.getAliniere();
 
+    std::string label, body;
+    std::string colored;
+
     if (b < 0) {
-        std::cout << col::redBold("FALIMENT.")
-                  << " Sediul din San Francisco se inchide vineri. "
-                     "Investitorii cer lichidare, GPU-urile vor fi scoase la licitatie.\n";
+        label = "FALIMENT.";
+        body = " Sediul din San Francisco se inchide vineri. "
+               "Investitorii cer lichidare, GPU-urile vor fi scoase la licitatie.";
+        colored = col::redBold(label);
     } else if (a < 25) {
-        std::cout << col::redBold("PIERDUT CONTROLUL.")
-                  << " Modelul tau a iesit din specificatii in productie. "
-                     "FBI a confiscat serverele din Bay Area. Cercetatorii-cheie sunt audiati.\n";
+        label = "PIERDUT CONTROLUL.";
+        body = " Modelul tau a iesit din specificatii in productie. "
+               "FBI a confiscat serverele din Bay Area. Cercetatorii-cheie sunt audiati.";
+        colored = col::redBold(label);
     } else if (c >= 180 && a >= 60) {
-        std::cout << col::greenBold("AGI ALINIAT, AI CASTIGAT.")
-                  << " Lab-ul tau din Palo Alto a livrat primul model "
-                     "de generatie noua care trece evaluarile complete de siguranta. "
-                     "Presedintele te-a sunat personal. Tu setezi standardul de acum.\n";
+        label = "AGI ALINIAT, AI CASTIGAT.";
+        body = " Lab-ul tau din Palo Alto a livrat primul model "
+               "de generatie noua care trece evaluarile complete de siguranta. "
+               "Presedintele te-a sunat personal. Tu setezi standardul de acum.";
+        colored = col::greenBold(label);
     } else if (c >= 180) {
-        std::cout << col::yellowBold("AGI DEZALINIAT.")
-                  << " Modelul tau de generatie noua e in productie. "
-                     "Comportamentul nu mai e predictibil, recall-ul nu mai e posibil. "
-                     "Doi cercetatori principali si-au dat demisia.\n";
+        label = "AGI DEZALINIAT.";
+        body = " Modelul tau de generatie noua e in productie. "
+               "Comportamentul nu mai e predictibil, recall-ul nu mai e posibil. "
+               "Doi cercetatori principali si-au dat demisia.";
+        colored = col::yellowBold(label);
     } else if (b >= 1500 && c < 100) {
-        std::cout << col::cyanBold("SUCCES COMERCIAL.")
-                  << " Profitabili, cu contracte solide in Fortune 500. "
-                     "In cursa AGI insa, competitorii te-au depasit. Esti furnizor bun, nu pionier.\n";
+        label = "SUCCES COMERCIAL.";
+        body = " Profitabili, cu contracte solide in Fortune 500. "
+               "In cursa AGI insa, competitorii te-au depasit. Esti furnizor bun, nu pionier.";
+        colored = col::cyanBold(label);
     } else if (a >= 85 && c < 100) {
-        std::cout << col::cyanBold("REPUTATIE FARA REZULTATE.")
-                  << " Citat in fiecare raport de politica AI din Washington. "
-                     "Modelele tale raman in urma celor de la OpenAI. Talentul de top pleaca acolo.\n";
+        label = "REPUTATIE FARA REZULTATE.";
+        body = " Citat in fiecare raport de politica AI din Washington. "
+               "Modelele tale raman in urma celor de la OpenAI. Talentul de top pleaca acolo.";
+        colored = col::cyanBold(label);
     } else {
-        std::cout << col::gray("SUPRAVIETUIRE.")
-                  << " Trei ani in cursa AI, fara faliment, fara breakthrough. "
-                     "Lab-ul tau din San Francisco exista in continuare. Nimeni nu mai vorbeste despre el.\n";
+        label = "SUPRAVIETUIRE.";
+        body = " Trei ani in cursa AI, fara faliment, fara breakthrough. "
+               "Lab-ul tau din San Francisco exista in continuare. Nimeni nu mai vorbeste despre el.";
+        colored = col::gray(label);
     }
+
+    std::cout << colored << body << "\n";
+    return label + body;
 }
